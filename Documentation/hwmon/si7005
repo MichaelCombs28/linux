@@ -1,0 +1,37 @@
+Kernel driver si7005
+====================
+
+Supported chips:
+  * Silicon Laboratories Si7005 and Si7015
+    Prefix: 'si7005'
+    Addresses scanned: I2C 0x40
+    Datasheet: Publicly available at the Silicon Labs website
+
+Author:
+  Quentin Stephenson <Quentin.Stephenson@silabs.com>
+
+Description
+-----------
+
+This driver implements support for the Silicon Labs Si7005 and Si7015 chips.
+
+The Si7005 and Si7015 are digital relative humidity and temperature sensors
+integrating humidity and temperature sensor elements along with an
+analog-to-digital converter, signal processing, calibration data and a
+digital I2C interface. The humidity and temperature sensors on each unit
+are factory calibrated ensuring that the devices are fully
+interchangeable with no recalibration or software changes required.
+
+The Si7005 and Si7015 are packaged in 4x4 mm QFN packages, are reflow solderable
+and offers an accurate, low-power, factory-calibrated digital solution ideal
+for measuring humidity, temperature and dew-point in applications
+ranging from HVAC/R and asset tracking to industrial and consumer
+platforms.
+
+sysfs-Interface
+---------------
+
+temp1_input     - temperature input
+humidity1_input - humidity input
+device_id       - device ID
+
