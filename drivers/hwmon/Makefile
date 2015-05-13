@@ -155,6 +155,12 @@ obj-$(CONFIG_SENSORS_WM831X)	+= wm831x-hwmon.o
 obj-$(CONFIG_SENSORS_WM8350)	+= wm8350-hwmon.o
 obj-$(CONFIG_SENSORS_BCM2835)	+= bcm2835-hwmon.o
 
+# Silicon Drivers
+
+obj-$(CONFIG_SENSORS_SI7005) += si7005.o
+obj-$(CONFIG_SENSORS_SI70XX) += si70xx.o
+obj-$(CONFIG_SENSORS_SI7034) += si7034.o
+
 obj-$(CONFIG_PMBUS)		+= pmbus/
 
 ccflags-$(CONFIG_HWMON_DEBUG_CHIP) := -DDEBUG
