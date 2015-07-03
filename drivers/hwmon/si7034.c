@@ -249,7 +249,7 @@ static int si7034_get_device_id(struct i2c_client *client, int *id)
  * device's name.
  * Returns 0 on success.
  */
-static int __devinit si7034_probe(struct i2c_client *client, 
+static int si7034_probe(struct i2c_client *client, 
 	const struct i2c_device_id *dev_id)
 {
 	struct si7034 *si7034;
@@ -305,7 +305,7 @@ static int __devinit si7034_probe(struct i2c_client *client,
  * si7034_remove() - Remove this driver from the device
  * @client: I2C client device
  */
-static int __devexit si7034_remove(struct i2c_client *client)
+static int si7034_remove(struct i2c_client *client)
 {
 	struct si7034 *si7034 = i2c_get_clientdata(client);
 
@@ -329,7 +329,7 @@ MODULE_DEVICE_TABLE(i2c, si7034_id);
 static struct i2c_driver si7034_driver = {
 	.driver.name	= "si7034",
 	.probe		= si7034_probe,
-	.remove		= __devexit_p(si7034_remove),
+	.remove		= si7034_remove,
 	.id_table	= si7034_id,
 };
 
