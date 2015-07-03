@@ -431,7 +431,7 @@ void si70xx_write_coefficient_table(struct i2c_client *client)
  * device's name.
  * Returns 0 on success.
  */
-static int __devinit si70xx_probe(struct i2c_client *client, 
+static int si70xx_probe(struct i2c_client *client, 
 	const struct i2c_device_id *dev_id)
 {
 	struct si70xx *si70xx;
@@ -509,7 +509,7 @@ static int __devinit si70xx_probe(struct i2c_client *client,
  * si70xx_remove() - Remove this driver from the device
  * @client: I2C client device
  */
-static int __devexit si70xx_remove(struct i2c_client *client)
+static int si70xx_remove(struct i2c_client *client)
 {
 	struct si70xx *si70xx = i2c_get_clientdata(client);
 
@@ -533,7 +533,7 @@ MODULE_DEVICE_TABLE(i2c, si70xx_id);
 static struct i2c_driver si70xx_driver = {
 	.driver.name	= "si70xx",
 	.probe		= si70xx_probe,
-	.remove		= __devexit_p(si70xx_remove),
+	.remove		= si70xx_remove,
 	.id_table	= si70xx_id,
 };
 
