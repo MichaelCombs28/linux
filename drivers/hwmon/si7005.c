@@ -249,7 +249,7 @@ static const struct attribute_group si7005_attr_group = {
  * device's name.
  * Returns 0 on success.
  */
-static int __devinit si7005_probe(struct i2c_client *client, 
+static int si7005_probe(struct i2c_client *client, 
 	const struct i2c_device_id *dev_id)
 {
 	int error;
@@ -285,7 +285,7 @@ static int __devinit si7005_probe(struct i2c_client *client,
  * si7005_remove() - Remove this driver from the device
  * @client: I2C client device
  */
-static int __devexit si7005_remove(struct i2c_client *client)
+static int si7005_remove(struct i2c_client *client)
 {
 	hwmon_device_unregister(si7005_dev);
 	sysfs_remove_group(&client->dev.kobj, &si7005_attr_group);
@@ -306,7 +306,7 @@ MODULE_DEVICE_TABLE(i2c, si7005_id);
 static struct i2c_driver si7005_driver = {
 	.driver.name	= "si7005",
 	.probe		= si7005_probe,
-	.remove		= __devexit_p(si7005_remove),
+	.remove		= si7005_remove,
 	.id_table	= si7005_id,
 };
 
